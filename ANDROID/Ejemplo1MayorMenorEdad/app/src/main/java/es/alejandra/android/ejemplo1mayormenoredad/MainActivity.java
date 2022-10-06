@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         tvResultCheckEdad.setText(etNombre.getText().toString() + TEXTO_BASE_MENOR_EDAD);
                     }
+                }else{
+                    Toast.makeText(MainActivity.this, "Introduce una edad correcta", Toast.LENGTH_SHORT).show();
                 }
             }
         });
