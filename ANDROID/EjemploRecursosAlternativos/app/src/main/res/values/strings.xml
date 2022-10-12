@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EjemploRecursosAlternativos</string>
+    <string name="nombre">NOMBRE</string>
+    <string name="descripcion_imagen">mi foto de perfil</string>
+    <string name="password">PASSWORD</string>
+    <string name="bt_login">LOGIN</string>
+</resources>
