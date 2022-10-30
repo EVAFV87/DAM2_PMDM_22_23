@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EjemploSpinner</string>
+    <string name="prompt_spinner_estado_civil">Elige estado civil</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="estados_civiles">
+        <item>Soltero/a</item>
+        <item>Casado/a</item>
+        <item>Separado/a</item>
+        <item>Divorciado/a</item>
+    </string-array>
+
+    <string-array name="paises">
+        <item>España</item>
+        <item>Francia</item>
+        <item>Portugal</item>
+        <item>Alemania</item>
+    </string-array>
+
+    <integer-array name="array_ejemplo_enteros">
+        <item>3</item>
+        <item>333</item>
+        <item>45</item>
+        <item>67</item>
+    </integer-array>
+
+    <array name="ejemplo_array_imagenes">
+        <item>@drawable/ic_launcher_background</item>
+        <item>@drawable/ic_launcher_background</item>
+    </array>
+</resources>
