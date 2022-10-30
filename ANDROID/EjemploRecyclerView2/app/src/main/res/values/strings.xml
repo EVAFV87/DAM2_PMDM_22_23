@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EjemploRecyclerView</string>
+    <string name="titulo_lista_equipos">EQUIPOS DE 1ª DIVISIÓN</string>
+</resources>

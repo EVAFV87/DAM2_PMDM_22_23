@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="escudo_equipo">
+        <item>@drawable/almeria</item>
+        <item>@drawable/barcelona</item>
+        <item>@drawable/madrid</item>
+        <item>@drawable/atletico_madrid</item>
+        <item>@drawable/valencia</item>
+        <item>@drawable/villarreal</item>
+        <item>@drawable/rayo_vallecano</item>
+        <item>@drawable/real_sociedad</item>
+        <item>@drawable/celta</item>
+        <item>@drawable/cordoba</item>
+        <item>@drawable/getafe</item>
+        <item>@drawable/granada</item>
+        <item>@drawable/sevilla</item>
+        <item>@drawable/elche</item>
+        <item>@drawable/eibar</item>
+        <item>@drawable/espanyol</item>
+        <item>@drawable/malaga</item>
+    </array>
+
+    <string-array name="nombre_equipo">
+        <item>almeria</item>
+        <item>barcelona</item>
+        <item>madrid</item>
+        <item>atletico_madrid</item>
+        <item>valencia</item>
+        <item>villarreal</item>
+        <item>rayo_vallecano</item>
+        <item>real_sociedad</item>
+        <item>celta</item>
+        <item>cordoba</item>
+        <item>getafe</item>
+        <item>granada</item>
+        <item>sevilla</item>
+        <item>elche</item>
+        <item>eibar</item>
+        <item>espanyol</item>
+        <item>malaga</item>
+    </string-array>
+
+    <integer-array name="puntos_equipo">
+        <item>33</item>
+        <item>27</item>
+        <item>23</item>
+        <item>23</item>
+        <item>19</item>
+        <item>12</item>
+        <item>11</item>
+        <item>10</item>
+        <item>9</item>
+        <item>8</item>
+        <item>7</item>
+        <item>6</item>
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+    </integer-array>
+</resources>
