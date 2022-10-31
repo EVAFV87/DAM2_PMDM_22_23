@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">EjemploRecyclerView</string>
     <string name="titulo_lista_equipos">EQUIPOS DE 1ª DIVISIÓN</string>
+    <string name="label_nombre_equipo">NOMBRE</string>
+    <string name="label_puntos">PUNTOS</string>
+    <string name="label_numero_jugadores">Nº JUGADORES</string>
 </resources>

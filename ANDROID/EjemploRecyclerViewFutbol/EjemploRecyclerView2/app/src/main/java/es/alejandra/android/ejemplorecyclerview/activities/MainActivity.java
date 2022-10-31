@@ -17,7 +17,7 @@ import es.alejandra.android.ejemplorecyclerview.modelo.Equipo;
 
 public class MainActivity extends AppCompatActivity {
     // DATOS
-    private List<Equipo> listaEquipos;
+    static List<Equipo> listaEquipos;
 
     // VIEWS
     private RecyclerView rvListaEquipos;

@@ -6,4 +6,86 @@
     android:layout_height="match_parent"
     tools:context=".activities.VerEquipoActivity">
 
+    <ImageView
+        android:id="@+id/ivEscudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:maxHeight="400dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvNombreEquipoLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvNombreEquipoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/label_nombre_equipo"
+        app:layout_constraintBottom_toTopOf="@+id/tvPuntosLabel"
+        app:layout_constraintEnd_toStartOf="@+id/tvNombreEquipo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivEscudo" />
+
+    <TextView
+        android:id="@+id/tvNombreEquipo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNombreEquipoLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvNombreEquipoLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvNombreEquipoLabel"
+        tools:text="Barcelona" />
+
+    <TextView
+        android:id="@+id/tvPuntosLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_puntos"
+        app:layout_constraintBottom_toTopOf="@+id/tvNumeroJugadoresLabel"
+        app:layout_constraintStart_toStartOf="@+id/tvNombreEquipoLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreEquipoLabel" />
+
+    <TextView
+        android:id="@+id/tvPuntos"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPuntosLabel"
+        app:layout_constraintStart_toStartOf="@+id/tvNombreEquipo"
+        app:layout_constraintTop_toTopOf="@+id/tvPuntosLabel"
+        tools:text="33" />
+
+    <TextView
+        android:id="@+id/tvNumeroJugadoresLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/label_numero_jugadores"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/tvPuntosLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvPuntosLabel" />
+
+    <TextView
+        android:id="@+id/tvNumeroJugadores"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNumeroJugadoresLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvNumeroJugadoresLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvNumeroJugadoresLabel"
+        tools:text="22" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
