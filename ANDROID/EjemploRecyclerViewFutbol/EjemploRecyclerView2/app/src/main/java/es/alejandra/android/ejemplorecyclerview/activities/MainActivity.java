@@ -1,5 +1,10 @@
 package es.alejandra.android.ejemplorecyclerview.activities;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +13,8 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
     // ADAPTADORES
     private AdaptadorEquipos adaptadorEquipos;
 
+    // LAUNCHERS FOR ACTIVITIES RETURNS RESULTS
+    private ActivityResultLauncher<Intent> aniadirEquipoLauncher;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +45,27 @@ public class MainActivity extends AppCompatActivity {
         // obtiene las referencias a las vistas XML
         initReferences();
         configurarRecyclerView();
+        configurarLauncherAniadirEquipoActivity();
 
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_aniadir:
+                lanzarActivityAniadirEquipo();
+                return true;
+            default:return super.onOptionsItemSelected(item);
+        }
+
+    }
 
     /**
      * Método que carga los datos en el arrayList de equipos
@@ -99,5 +127,31 @@ public class MainActivity extends AppCompatActivity {
         Intent i=new Intent(this, VerEquipoActivity.class);
         i.putExtra(VerEquipoActivity.EXTRA_POSICION_ARRAY,posicion);
         startActivity(i);
+    }
+
+
+    /** Método que lanza la activity para añadir un nuevo equipo
+     *
+     */
+    private void lanzarActivityAniadirEquipo(){
+        Intent iAniadirEquipo=new Intent(this,AniadirEquipoActivity.class);
+        aniadirEquipoLauncher.launch(iAniadirEquipo);
+
+    }
+
+
+    /** Método que configura el launcher que se necesita para lanzar la activity AniadirEquipo y recoger
+     * los datos que devuelva
+     */
+    private void configurarLauncherAniadirEquipoActivity(){
+        aniadirEquipoLauncher=registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        // TODO recoger el resultado  que viene de AniadirEquipoActivity
+                    }
+                }
+        );
     }
 }

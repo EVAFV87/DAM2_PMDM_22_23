@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.AniadirEquipoActivity">
+
+    <TextView
+        android:id="@+id/tvLabelNombreEquipoAniadir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_nombre_equipo_aniadir" />
+
+    <EditText
+        android:id="@+id/etNombreEquipoAniadir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/tvPuntosEquipoAniadir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_puntos_equipo_aniadir" />
+
+    <EditText
+        android:id="@+id/etPuntosEquipoAniadir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/tvLabelEscudoAniadir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_escudo" />
+
+    <ImageView
+        android:id="@+id/ivEscudoAniadir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <CheckBox
+        android:id="@+id/cbSinFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_sin_foto" />
+
+    <Button
+        android:id="@+id/btAniadirFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_boton_aniadir_foto" />
+
+    <Button
+        android:id="@+id/btAniadirEquipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_boton_aniadir_equipo_nuevo" />
+</LinearLayout>

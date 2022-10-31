@@ -4,4 +4,11 @@
     <string name="label_nombre_equipo">NOMBRE</string>
     <string name="label_puntos">PUNTOS</string>
     <string name="label_numero_jugadores">Nº JUGADORES</string>
+    <string name="label_nombre_equipo_aniadir">Nombre Equipo</string>
+    <string name="label_puntos_equipo_aniadir">Puntos Equipo</string>
+    <string name="label_escudo">Escudo</string>
+    <string name="label_sin_foto">Sin Foto</string>
+    <string name="label_boton_aniadir_foto">AÑADIR FOTO</string>
+    <string name="label_boton_aniadir_equipo_nuevo">AÑADIR EQUIPO NUEVO</string>
+    <string name="aniadir_menu">AÑADIR</string>
 </resources>
