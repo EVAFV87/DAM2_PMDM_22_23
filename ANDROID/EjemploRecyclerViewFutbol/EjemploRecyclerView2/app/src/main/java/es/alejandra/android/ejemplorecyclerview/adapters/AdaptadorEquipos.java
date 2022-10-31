@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +47,13 @@ public class AdaptadorEquipos extends RecyclerView.Adapter<AdaptadorEquipos.Equi
 
         public EquiposViewHolder(@NonNull View itemView) {
             super(itemView);
+            //asigno listener de clicks
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(view.getContext(), "Has pulsado el elemento en la posición: " + getAdapterPosition() , Toast.LENGTH_SHORT).show();
+                }
+            });
             ivEscudo=itemView.findViewById(R.id.ivEscudo);
             tvNombre=itemView.findViewById(R.id.tvNombreEquipo);
             tvPuntos=itemView.findViewById(R.id.tvPuntos);
