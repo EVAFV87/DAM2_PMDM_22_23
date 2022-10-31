@@ -1,8 +1,17 @@
 package es.alejandra.android.ejemplorecyclerview.activities;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.hardware.Camera;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -15,6 +24,8 @@ public class AniadirEquipoActivity extends AppCompatActivity {
     CheckBox cbSinFoto;
     Button btAniadirFoto;
     ImageView ivEscudo;
+    // LAUNCHERS FOR ACTIVITIES RETURNS RESULTS, como la cámara de fotos
+    private ActivityResultLauncher<Void> tomarFotoLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +34,9 @@ public class AniadirEquipoActivity extends AppCompatActivity {
 
         initReferences();
         setListenersToCheckBoxes();
+        configurarLauncherTomarFoto();
+        setListenersToButtons();
+
     }
 
     /** Método que obtiene las referencias a las vistas XML
@@ -57,4 +71,44 @@ public class AniadirEquipoActivity extends AppCompatActivity {
             }
         });
     }
+
+    /** Método que configurar el launcher que permite lanzar la activity de la cámara de fotos
+     *  y recoger luego la foto en formato thumbnail
+     */
+    private void configurarLauncherTomarFoto(){
+        tomarFotoLauncher=registerForActivityResult(
+                new ActivityResultContracts.TakePicturePreview(),
+                new ActivityResultCallback<Bitmap>() {
+                    @Override
+                    public void onActivityResult(Bitmap result) {
+
+                       ivEscudo.setImageBitmap(result);
+
+                    }
+                }
+        );
+
+    }
+    /** Método que añade los listeners a los botones
+     *
+     */
+    private void setListenersToButtons(){
+        btAniadirFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tomarFoto();
+            }
+        });
+
+    }
+
+    /** Método que lanza la cámara del dispositivo y recoge la foto en formato thumbnail
+     *
+     */
+    private void tomarFoto(){
+        tomarFotoLauncher.launch(null);
+
+    }
+
+
 }
