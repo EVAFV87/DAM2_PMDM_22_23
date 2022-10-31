@@ -15,6 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        cargarDatos();
+        // inicializamos la lista de equipos sólo si está vacía
+        if (listaEquipos==null || listaEquipos.isEmpty())
+            cargarDatos();
         // obtiene las referencias a las vistas XML
         initReferences();
         configurarRecyclerView();
@@ -52,17 +55,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_principal,menu);
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_aniadir:
                 lanzarActivityAniadirEquipo();
                 return true;
-            default:return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
     }
@@ -115,41 +119,54 @@ public class MainActivity extends AppCompatActivity {
            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
          */
-        rvListaEquipos.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        rvListaEquipos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
     }
 
-    /** Método que lanza la activity VerEquipo que muestra los datos del equipo que se encuentra
-     *  en la posición indicada del array de datos
+    /**
+     * Método que lanza la activity VerEquipo que muestra los datos del equipo que se encuentra
+     * en la posición indicada del array de datos
+     *
      * @param posicion que ocupa el equipo en la lista de datos
      */
-    private void lanzarActivityVerEquipo(int posicion){
-        Intent i=new Intent(this, VerEquipoActivity.class);
-        i.putExtra(VerEquipoActivity.EXTRA_POSICION_ARRAY,posicion);
+    private void lanzarActivityVerEquipo(int posicion) {
+        Intent i = new Intent(this, VerEquipoActivity.class);
+        i.putExtra(VerEquipoActivity.EXTRA_POSICION_ARRAY, posicion);
         startActivity(i);
     }
 
 
-    /** Método que lanza la activity para añadir un nuevo equipo
-     *
+    /**
+     * Método que lanza la activity para añadir un nuevo equipo
      */
-    private void lanzarActivityAniadirEquipo(){
-        Intent iAniadirEquipo=new Intent(this,AniadirEquipoActivity.class);
+    private void lanzarActivityAniadirEquipo() {
+        Intent iAniadirEquipo = new Intent(this, AniadirEquipoActivity.class);
         aniadirEquipoLauncher.launch(iAniadirEquipo);
 
     }
 
 
-    /** Método que configura el launcher que se necesita para lanzar la activity AniadirEquipo y recoger
+    /**
+     * Método que configura el launcher que se necesita para lanzar la activity AniadirEquipo y recoger
      * los datos que devuelva
      */
-    private void configurarLauncherAniadirEquipoActivity(){
-        aniadirEquipoLauncher=registerForActivityResult(
+    private void configurarLauncherAniadirEquipoActivity() {
+        aniadirEquipoLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult result) {
-                        // TODO recoger el resultado  que viene de AniadirEquipoActivity
+                        if(result.getResultCode()==RESULT_OK) {
+                            Intent data = result.getData();
+                            //recojo los datos devueltos por la activity
+                            String resultadoInserción = data.getStringExtra(AniadirEquipoActivity.RESULTADO_INSERCION);
+                            if (resultadoInserción.equals("OK")) {
+                                // notifico al adaptador que hubo una inserción y que recargue la lista
+                                adaptadorEquipos.notifyItemInserted(data.getIntExtra(AniadirEquipoActivity.POSICION_INSERCION, -1));
+                            }
+                        }else{
+                            Toast.makeText(MainActivity.this, "INSERCIÓN CANCELADA: Equipo no añadido", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
         );

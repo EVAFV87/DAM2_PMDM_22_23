@@ -11,4 +11,7 @@
     <string name="label_boton_aniadir_foto">AÑADIR FOTO</string>
     <string name="label_boton_aniadir_equipo_nuevo">AÑADIR EQUIPO NUEVO</string>
     <string name="aniadir_menu">AÑADIR</string>
+    <string name="error_nombre_vacío">Debes introducir un nombre obligatoriamente</string>
+    <string name="error_puntos">Debes introducir un valor mayor que cero para los puntos</string>
+    <string name="error_escudo">Debes indicar que no lleva escudo o tomar una foto</string>
 </resources>
